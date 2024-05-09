@@ -1,6 +1,11 @@
 import express, { Request, Response } from "express";
 import cors from "cors";
 import "dotenv/config";
+import mongoose from "mongoose";
+
+mongoose
+  .connect(process.env.MONGO_URI as string)
+  .then(() => console.log("Connected to databse"));
 
 const app = express();
 
@@ -13,7 +18,6 @@ app.get("/test", async (req: Request, res: Response) => {
     message: "Hello world",
   });
 });
-
 
 app.listen(process.env.PORT || 7000, () => {
   console.log("Server is running on port 7000");
