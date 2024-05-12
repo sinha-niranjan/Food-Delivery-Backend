@@ -14,6 +14,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
+app.get("/health", async (req: Request, res: Response) => {
+  res.send({
+    message: "health ok !! ",
+  });
+});
 
 // /api/my/user
 
