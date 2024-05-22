@@ -27,5 +27,10 @@ router.post(
   MyRestaurantController.createMyRestaurant
 );
 
+router.put("/", upload.single("imageFile"),
+validateMyRestaurantResquest,
+jwtCheck,
+jwtParse,MyRestaurantController.updateMyRestaurant)
+
 
 export default router;
